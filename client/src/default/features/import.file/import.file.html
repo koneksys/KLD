@@ -1,0 +1,141 @@
+<div class="row" style="padding-top:10px;padding-right:20px;padding-left:20px;">
+  <div class="col-md-12" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+    <div class="row">
+      <div class="col-md-12">
+          <h2 ng-show="importFile.importErrorMessage !== ''" class="bg-danger" style="padding:20px;">{{importFile.importErrorMessage}}</h2>
+      </div>
+      <div class="col-md-12" style="padding:20px;">
+        <div class="col-md-2" ng-show="importFile.r.datasetProfiles.length > 0 && !importFile.uploaded" class="cssFade">
+          <h4>
+              <input type="file" nv-file-select="" uploader="uploader" multiple style="color: transparent;"/>
+          </h4>
+        </div>
+        <div class="col-md-10" ng-show="importFile.r.datasetProfiles.length > 0" style="padding-top: 7px;">
+          <div class="row">
+
+            <uib-accordion class="col-md-12" close-others="true" ng-show="false">
+              <uib-accordion-group>
+                <uib-accordion-heading>
+                  <b>Datasets selection</b>
+                </uib-accordion-heading>
+                  <div class="row" style="margin: 10px;">
+                    <span style="margin-right: 20px;" ng-repeat="profile in importFile.r.datasetProfiles | reverse">
+                      <input type="radio" ng-model="importFile.datasetSearchScope" value="{{profile.identifier}}">&nbsp;&nbsp;
+                        <span ng-if="profile.identifier === importFile.defaultDomain" href="{{profile.identifier}}">Default (<{{profile.identifier}}>)</span>
+                        <span ng-if="profile.identifier !== importFile.defaultDomain" href="{{profile.identifier}}"><{{profile.identifier}}></span><br>
+                    </span>
+                  </div>
+              </uib-accordion-group>
+            </uib-accordion>
+
+
+            <div class="col-md-12" ng-if="importFile.countProcessingFiles() > 0">
+              <button type="button" class="btn btn-default"
+                      ng-click="importFile.importAll()"
+                      ng-disabled="importFile.inprogress || importFile.stepProgressBar === 100"
+                      ng-show="importFile.countValidProcessingFiles > 0">
+                <span class="glyphicon glyphicon-upload"></span> Import
+              </button>
+              <button ng-hide="importFile.inprogress" type="button" class="btn btn-default btn-s" ng-click="importFile.removeAllProcessingFile();">
+                <span class="glyphicon glyphicon-trash"></span> Remove all
+              </button>
+
+              <h3>Import progress</h3>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{importFile.stepProgressBar}}%;">
+                  {{importFile.stepProgressBar}}{{importFile.stepProgressText}}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12" ng-if="importFile.countProcessingFiles() > 0">
+              <h4 class="text-danger"><span><i class="glyphicon glyphicon-remove"></i></span> Invalid files</h4>
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th width="60%">Name</th>
+                    <th>Format</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-if="!processingFile.response.success" ng-repeat="processingFile in importFile.getProcessingFiles() track by $index">
+                    <td><b>{{processingFile.response.file.originalname}} </b><span ng-if="!processingFile.response.success" style="color:red;">{{ processingFile.response.message }}</span></td>
+                    <td>{{processingFile.response.format}}</td>
+                    <td>{{processingFile.response.file.size/1024|number:2}} KB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12" ng-if="importFile.countProcessingFiles() > 0">
+              <h4 class="text-success"><span><i class="glyphicon glyphicon-ok"></i></span> Valid files</h4>
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th width="60%">Name</th>
+                    <th>Format</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-if="processingFile.response.success" ng-repeat="processingFile in importFile.getProcessingFiles() track by $index">
+                    <td><b>{{processingFile.response.file.originalname}}</b></td>
+                    <td>{{processingFile.response.format}}</td>
+                    <td>{{processingFile.response.file.size/1024|number:2}} KB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12" ng-show="importFile.countProcessingFiles() === 0">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th width="40%">Name</th>
+                    <th>Size</th>
+                    <th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in uploader.queue track by $index">
+                    <td><b>{{ item.file.name }}</b></td>
+                    <td nowrap>{{ item.file.size/1024|number:2 }} KB</td>
+                    <td class="text-left">
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar progress-bar-success" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-left">
+                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12" ng-if="uploader.queue.length > 0" ng-show="importFile.countProcessingFiles() === 0">
+              <div>
+                Upload progress:
+                <div class="progress" style="">
+                    <div class="progress-bar progress-bar-success" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                <span class="glyphicon glyphicon-upload"></span> Upload all
+              </button>
+              <button type="button" class="btn btn-default btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+              </button>
+              <button type="button" class="btn btn-default btn-s" ng-click="importFile.removeAllProcessingFile();" ng-disabled="!uploader.queue.length">
+                <span class="glyphicon glyphicon-trash"></span> Remove all
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

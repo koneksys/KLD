@@ -1,0 +1,38 @@
+
+# FUSEKI Security
+
+## FUSEKI Shiro Configuration Template
+
+```
+[main]
+ssl.enabled = true 
+
+plainMatcher=org.apache.shiro.authc.credential.SimpleCredentialsMatcher
+iniRealm.credentialsMatcher = $plainMatcher
+localhost=org.apache.jena.fuseki.authz.LocalhostFilter
+
+[users]
+user=1234123412341234123413
+
+[roles]
+
+[urls]
+/$/status = anon
+/$/ping   = anon
+/** = authcBasic,user[user]
+```
+
+
+## CURL Test Script Template
+
+```
+curl -i \
+    -H "accept: application/sparql-results+json" \
+    -X POST -d "query=select * where {?s ?p ?o}" \
+    http://<user>:<password>@localhost:3030/public/sparql 
+
+curl -i \
+    -H "accept: application/sparql-results+xml" \
+    -X POST -d "query=select * where {?s ?p ?o}" \
+    http://<user>:<password>@localhost:3030/linkedsheet/sparql 
+```

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:dbpedia-owl="http://dbpedia.org/ontology#">
+
+<rdf:Description rdf:about="http://dbpedia.org/resource/Phuket_Island">
+     <rdf:type rdf:resource="http://dbpedia.org/ontology/island"/>
+</rdf:Description>
+
+</rdf:RDF>

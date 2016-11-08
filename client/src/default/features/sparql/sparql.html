@@ -1,0 +1,154 @@
+<div class="row" style="padding:20px;">
+
+    <div class="col-md-12">
+      <h4 style="display:inline">Question Catgories </h4>
+
+      <div class="btn-group" uib-dropdown ng-repeat="question in sparql.sparqlQuestions" style="margin:2px;">
+        <button class="btn btn-default btn-xs" uib-dropdown-toggle>
+          {{question.category}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu>
+          <li role="menuitem" ng-repeat="q in question.questions track by $index">
+            <a href="#" ng-click="sparql.preset(q)">{{q.name}}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-group" style="padding-top: 10px;">
+        <textarea class="form-control" placeholder="SPARQL query statement..." rows="3" ng-model="sparql.queryStatement"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-default btn-xs" ng-click="sparql.execute('table')">Execute</button>
+      </div>
+
+    </div>
+
+
+    <div class="col-md-12" ng-if="sparql.resultTriples.results.bindings.length > 0">
+      <b>Results data</b><br>
+      <a href="" ng-click="sparql.execute('table')">HTML</a> | 
+      <a href="" ng-click="sparql.execute('json')">JSON</a> 
+    </div>
+
+     <div class="col-md-12" ng-if="sparql.resultTriples.results.bindings.length > 0">
+      {{sparql.currentQuestionName}}<br>
+      <h3>{{sparql.queryStatement}}</h3>
+      About {{sparql.total | number}} results
+    </div>
+
+    <div class="col-md-12" ng-if="sparql.resultTriples.results.bindings.length > 0 && sparql.format !== 'table'" style="padding-top: 30px;">
+      <pre><code>{{sparql.output}}</code></pre>
+    </div>
+
+    <div class="col-md-12" style="margin-top:20px;">
+      <table class="table">
+      <tr ng-repeat="bind in sparql.resultTriples.results.bindings " style="padding:0px;">
+        <td width="33%">{{bind.s.value}}</td> 
+        <td width="33%">{{bind.p.value}}</td> 
+        <td width="33%">{{bind.o.value}}</td>
+      </tr>
+      </table>
+    </div>
+
+    <!--
+    <div class="col-md-12" style="margin-top:20px;">
+      <div class="col-sm-4 col-md-3" ng-repeat="bind in sparql.resultTriples.results.bindings " style="padding:0px;">
+        <div ng-repeat="(k,v) in bind" style="padding:0px;">
+          <a href="#" style="margin:1px;" ng-click="sparql.showAttrs(v.value)" uib-popover="{{v.value}}" popover-placement="center-botton" popover-trigger="mouseenter">{{ sparql.humanReadable(v.value) }}</a>
+        </div>
+      </div>
+    </div>
+    -->
+      <div class="col-md-12 bg-info" uib-collapse="sparql.collapse" style="width:70%;padding:2px;border-radius: 5px;border: 2px solid #000;position:absolute;top:150px;left:100px;z-index:10000">
+          <uib-tabset>
+            <uib-tab class="bg-active">
+              <uib-tab-heading><b>Table</b></uib-tab-heading>
+              <table class="table" ng-if="sparql.attrBlock.blocks.length > 0">
+                <thead>
+                  <tr class="active">
+                    <th><a href="#" class="btn btn-xs btn-default" ng-click="sparql.closeAttrs()">Close</a></th>
+                  </tr>
+                </thead>
+                <tr class="active" valign="top">
+                  <td>
+                    <b>Resource: </b>
+                    <pre>
+{{sparql.attrBlock.subject.uri}}</pre>
+                  </td>
+                </tr>
+                <tr class="active" valign="top">
+                  <td>
+                    <b>Properties: </b>
+                    <uib-accordion close-others="false">
+                      <uib-accordion-group ng-repeat="block in sparql.attrBlock.blocks">
+                        <uib-accordion-heading>
+                        {{block.predicateUri}} ({{block.objects.length}})
+                        </uib-accordion-heading>
+<pre>
+<span ng-repeat="object in block.objects">{{object.uri}}
+</span></pre>
+                        </div>
+                      </uib-accordion-group>
+                    </uib-accordion>
+                  </td>
+                </tr>
+              </table>
+            </uib-tab>
+            <uib-tab>
+              <uib-tab-heading><b>Plain text</b></uib-tab-heading>
+              <table class="table" ng-if="sparql.attrBlock.blocks.length > 0">
+                <thead>
+                <tr class="active">
+                    <th><a href="#" class="btn btn-xs btn-default" ng-click="sparql.closeAttrs()">Close</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                  <td><pre>
+Date: {{ sparql.attrBlock.creationDate | date:'medium' }}
+Resource: 
+
+  {{sparql.attrBlock.subject.uri}}
+
+Properties:
+    <span ng-repeat="block in sparql.attrBlock.blocks">
+  {{block.predicateUri}} ({{block.objects.length}})
+      <i ng-repeat="object in block.objects">
+        {{object.uri}}</i>
+    </span>
+                  </pre></td>
+                </tr>
+                </tbody>
+              </table>
+            </uib-tab>
+          </uib-tabset>
+
+        </div>
+
+   
+
+    <div class="col-sm-12" style="padding-top: 30px;" ng-if="sparql.resultTriples.results.bindings.length > 0">
+      Pages
+      <span ng-repeat="page in sparql.pages track by $index">
+        <a href="#" ng-if="($index + 1) === sparql.currentPage" ng-click="sparql.nextPage($index + 1)" class="bg-success" style="margin:1px;padding:3px;">{{$index + 1}}</a>
+        <a href="#" ng-if="($index + 1) !== sparql.currentPage" ng-click="sparql.nextPage($index + 1)" style="margin:1px;">{{$index + 1}}</a>
+      </span>
+    </div>
+   
+    
+    <div ng-show="false" class="col-md-12" style="padding-top: 20px;" ng-if="sparql.resultTriples.results.bindings.length > 0">
+        <b>Permanent Link</b><br>
+        <a target="permanentlink"
+            href="javascript:alert('Not implemented yet')">
+            {{sparql.permanentLinkBaseUrl}}{{sparql.queryStatement|escape}}&<b>output={{sparql.format}}</b>
+        </a><br>
+        <br>
+        <b>API</b> (OutputFormat = table, json, text, csv, tsv)<br>
+        {{sparql.permanentLinkBaseUrl}}<b class="text-danger">[SPARQLQueryStatement]</b>&<b class="text-danger">output=[OutputFormat]</b><br>
+    </div>
+    
+
+</div>
+
+

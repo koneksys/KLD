@@ -1,0 +1,20 @@
+
+.filter li:hover {
+  cursor: pointer;
+}
+
+.history {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0px;
+}
+
+.ui-match { 
+  background: yellow; 
+  color: #000;
+  padding: 2px;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}

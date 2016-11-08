@@ -1,0 +1,87 @@
+<div class="row" style="overflow-x: hidden;padding:20px;">
+
+  <p ng-if="!datasets.r.foundDatasetProfile" class="bg-warning" style="padding:10px;">You have no dataset profile.</p>
+
+  <uib-tabset ng-show="false">
+    <uib-tab>
+        <uib-tab-heading><span class="glyphicon glyphicon-globe"></span> <b>Datasets</b></uib-tab-heading>
+        <p ng-if="datasets.r.datasetProfiles.length >= 5" class="bg-danger" style="padding:10px;">You reached maximum datasets</p>
+        <div ng-if="datasets.r.foundDatasetProfile" class="col-md-12 table-responsive">
+          <h4>Datasets</h4>
+          <table width="100%" class="table" style="margin:0;padding:0; border: 0px solid;">
+            <thead>
+              <tr align="center">
+                <th>Organization</th>
+                <th>Author</th>
+                <th>Dataset Identifier</th>
+                <th>Description</th>
+                <th>License</th>
+                <th>Creation Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="profile in datasets.r.datasetProfiles">
+                <td>{{profile.organization}}</td>
+                <td>{{profile.email}}</td>
+                <td>{{profile.identifier}}</td>
+                <td>{{profile.description}}</td>
+                <td>{{profile.license}}</td>
+                <td>{{profile.creationDate | date:'medium'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </uib-tab>
+    <uib-tab ng-if="datasets.r.datasetProfiles.length < 5">
+        <uib-tab-heading><span class="glyphicon glyphicon-plus-sign"></span> <b>Create New Dataset</b></uib-tab-heading>
+          <div class="col-md-12">
+            <h4>Create new dataset profile</h4>
+            <form name="newDatasetForm">
+              <div class="form-group">
+                <label>Dataset Identifer</label>
+
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="radio" ng-model="datasets.datasetIdentifierInputType" value="userIdentifier">
+                  </span>
+                  <input type="url" class="form-control" name="identiferOfNewDataset" required ng-model="datasets.identiferOfNewDataset">
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="radio" ng-model="datasets.datasetIdentifierInputType" value="userGeneratedVanityUrl">
+                  </span>
+                  <input type="text" class="form-control" ng-disabled="true" ng-model="datasets.generatedIdentiferId">
+                </div>
+                <br>
+                <p class="bg-danger" style="padding:10px;" ng-show="newDatasetForm.identiferOfNewDatasets.$error.required">Dataset Identifer cannot be an empty url</p>
+                <p class="bg-danger" style="padding:10px;" ng-show="newDatasetForm.identiferOfNewDatasets.$error.url">
+                Dataset Identifer is not a Valid URL for your data set identifier. Example: http://example.com/mydepartment/myname/mydataset</p>
+              </div>
+
+              <div class="form-group">
+                <label>Dataset License</label>
+                <input type="url" class="form-control" name="licenseOfNewDataset" required ng-model="datasets.licenseOfNewDataset"/>
+                <br>
+                <p class="bg-danger" style="padding:10px;" ng-show="newDatasetForm.licenseOfNewDatasets.$error.required">Cannot be an empty text</p>
+              </div>
+
+              <div class="form-group">
+                <label>Dataset Description</label>
+                <textarea class="form-control" rows="10" name="descriptionOfNewDataset" required ng-model="datasets.descriptionOfNewDataset"></textarea> 
+                <br>
+                <p class="bg-danger" style="padding:10px;" ng-show="newDatasetForm.descriptionOfNewDatasets.$error.required">Cannot be an empty text</p>
+              </div>
+
+              <div class="form-group">
+                <button ng-disabled="newDatasetForm.identiferOfNewDatasets.$error.required || newDatasetForm.identiferOfNewDatasets.$error.url || newDatasetForm.descriptionOfNewDatasets.$error.required || newDatasetForm.licenseOfNewDatasets.$error.required"
+                        class="btn btn-default"
+                        type="button"
+                        ng-click="datasets.addNewDatasetProfile()">Create</button>
+              </div>
+            </form>
+          </div>
+    </uib-tab>
+  </uib-tabset>
+  <ui-view name="admin"></ui-view>
+</div>

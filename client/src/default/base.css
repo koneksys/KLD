@@ -1,0 +1,13 @@
+
+* {
+  word-break:  break-word;
+  font-size: 100%;
+}
+
+a {outline : none !important;}
+
+body {overflow-x: hidden;}
+
+profile {
+  width: 30px;
+}

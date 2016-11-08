@@ -1,0 +1,320 @@
+<div class="row" style="overflow-x: hidden;padding:20px;">
+  <div class="col-md-12" style="padding:0px;">
+      <div class="col-md-3">
+          <uib-accordion close-others="true">
+            <uib-accordion-group>
+              <uib-accordion-heading class="history_header">
+                Highlight
+              </uib-accordion-heading>
+              <div>
+                <p style="margin: 0px;padding: 2px;"><label class="checkbox-inline pointer" ng-class="{pointer: pointerCursor, wait: waitCursor}">
+                        <input id="filterSubject" ng-model="search.filterSubject" type="checkbox" ng-change="onFilterSubject(filterSubject);">
+                        <span class="label label-primary"><b>Subject</b></span>
+                    </label></p>
+                <p style="margin: 0px;padding: 2px;"><label class="checkbox-inline pointer" ng-class="{pointer: pointerCursor, wait: waitCursor}">
+                        <input id="filterPredicate" ng-model="search.filterPredicate" type="checkbox" ng-change="onFilterPredicate(filterPredicate);">
+                        <span class="label label-danger"><b>Predicate</b></span>
+                    </label></p>
+                <p style="margin: 0px;padding: 2px;"><label class="checkbox-inline pointer" ng-class="{pointer: pointerCursor, wait: waitCursor}">
+                      <input id="filterObject" ng-model="search.filterObject" type="checkbox" ng-change="search.onFilterObject(filterObject);">
+                      <span class="label label-info"><b>Object</b></span>
+                    </label> </p>
+              </div>
+            </uib-accordion-group>
+          </uib-accordion>
+
+          <!-- Resource Type Filter -->
+
+          <uib-accordion ng-if="search.rdfTypesCount > 0">
+            <uib-accordion-group>
+              <uib-accordion-heading class="history_header">
+                <div class="pull-left" ng-if="search.rdfTypesCount > 0">
+                    Resource Type Filter
+                    <span ng-if="search.rdfTypesCount > 0">({{search.rdfTypesCount}})</span>
+                </div>
+                <br>
+              </uib-accordion-heading>
+              <div>
+                <label class="checkbox-inline pointer">
+                  <input
+                    ng-model="search.isShowResourceTypeUri" 
+                    type="checkbox" 
+                    ng-click="search.showResourceTypeUri(search.isShowResourceTypeUri)">
+                  <small>Show URI</small><br><br>
+                </label>
+                <small>
+                </small>
+                <p>
+                  <input 
+                      type="text" 
+                      ng-model="search.searchResourceType"
+                      placeholder="Filter resource types"
+                      style="width:100%;"/>
+                </p>
+                <p ng-repeat="type in search.rdfTypes | filter:search.searchResourceType"  style="margin: 0px;padding: 2px;">
+                  <label class="checkbox-inline pointer">
+                    <input
+                        ng-model="search.rdfTypesTextsDict[type.uri]" 
+                        type="checkbox" 
+                        ng-click="search.turnOnResourceType(type.uri)">
+                    <span class="label label-success"><b>{{type.title}}</b></span>
+                    <small ng-if="search.isShowResourceTypeUri">
+                        <a target="resTypeUri" href="{{type.uri}}">{{type.uri}}</a>
+                    </small>
+                  </label>
+                </p>
+              </div>
+            </uib-accordion-group>
+          </uib-accordion>
+
+          <uib-accordion close-others="true">
+            <uib-accordion-group>
+              <uib-accordion-heading class="history_header">
+                <div class="pull-left">
+                  History
+                  <span ng-if="search.searchHistory.length > 0">({{search.searchHistory.length}})</span>
+                </div>
+                <div class="pull-right">
+                  <a ng-if="search.searchHistory.length > 0" href="#" ng-click="search.onClearSearchHistory();">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                  </a>
+                </div>
+                <br>
+              </uib-accordion-heading>
+              <div>
+                <ul class="list-group" >
+                  <li ng-repeat="history in search.searchHistory" 
+                      class="list-group-item history">
+                    <small class="pull-right">
+                      <a href="#" ng-click="search.removeHistoryItem(history)">
+                          <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
+                      </a>
+                    </small>
+                    <p class="history" ng-click="search.processSearchFromHistory(history)">
+                        <small ng-bind-html="history.html"></small>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </uib-accordion-group>
+          </uib-accordion>
+      </div>
+      <div class="col-md-9 table-responsive"> 
+
+        <uib-accordion close-others="true" ng-show="false">
+          <uib-accordion-group>
+            <uib-accordion-heading>
+              <b>Datasets selection</b>
+            </uib-accordion-heading>
+              <div class="row" style="margin: 10px;">
+                <span style="margin-right: 20px;"><input type="radio" ng-model="search.datasetSearchScope" value="union"/>&nbsp;&nbsp;
+                Union all datasets<br></span>
+                <span style="margin-right: 20px;" ng-repeat="profile in search.r.datasetProfiles | reverse">
+                  <input type="radio" ng-model="search.datasetSearchScope" value="{{profile.identifier}}">&nbsp;&nbsp;
+                    <span ng-if="profile.identifier === search.defaultDomain" href="{{profile.identifier}}">Default (<{{profile.identifier}}>)</span>
+                    <span ng-if="profile.identifier !== search.defaultDomain" href="{{profile.identifier}}"><{{profile.identifier}}></span><br>
+                </span>
+              </div>
+          </uib-accordion-group>
+        </uib-accordion>
+
+        <input ng-model="search.fullTextSearchText" ng-keyup="$event.keyCode == 13 ? search.processSearchFromTextInput(search.fullTextSearchText) : null" class="form-control" placeholder="Search triples" autofocus="autofocus" style="font-size:18px;">
+        <div ng-if="search.searchByPredicateLink !== '' && search.currentTriples.searchHistory.isSearchAgaintsPredicate !== true">
+          <br><span ng-bind-html="search.searchByPredicateLink"></span>
+          <a href="#"
+             ng-click="search.openPredicateSelectionDialog(search.searchByPredicateQuery, search.searchByPredicateMatchedPredicates)">
+            Show
+          </a>
+        </div>
+        <div>
+          <div style="margin-top:10px;margin-bottom:0px;padding-bottom:0px;">
+            <strong ng-if="search.currentTriples.searchHistory.isSearchAgaintsPredicate === true">
+            SEARCH BY PREDICATE:
+            </strong>
+            <span ng-bind-html="search.searchSpecContent"></span>
+          </div>
+          <div style="margin-top:0px;padding-top:0px;width:100%">
+            <div>
+              <div ng-if="search.currentTriples.results.length > 0">
+                <div class="pull-left" ng-bind-html="search.currentTriples.paging_title"></div>
+              </div>
+
+              <div class="pull-right" ng-if="search.currentTriples.results.length > 0">
+                Pages:
+
+                <a class="btn btn-default btn-xs" ng-click="search.processSearchFromPaging(search.currentTriples.searchHistory,1)"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a>
+
+                <a ng-if="search.currentTriples.current_page - 1 > 0"  class="btn btn-default btn-xs"  ng-click="search.processSearchFromPaging(search.currentTriples.searchHistory, search.currentTriples.current_page - 1)"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+
+                <a ng-if="search.currentTriples.current_page - 1 === 0" ng-disabled="true" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+
+                <span ng-if="search.hasInvisiblePreviousPagination">...</span>
+
+                <span ng-repeat="paging_item in search.getPageRange(search.currentTriples.paging_items , search.currentTriples.num_of_pages, search.currentTriples.current_page) track by $index" >
+
+                <a href="#" ng-class="search.currentTriples.current_page == paging_item.page_num ? 'btn-danger' : 'btn-default'" class="btn btn-xs" ng-click="search.processSearchFromPaging(search.currentTriples.searchHistory, paging_item.page_num)" style="min-width:25px;">{{paging_item.page_num}}</a>
+
+                </span>
+
+                <span ng-if="search.hasInvisibleNextPagination">...</span>
+
+                <a ng-if="search.currentTriples.current_page + 1 <= search.currentTriples.num_of_pages" class="btn btn-default btn-xs"  ng-click="search.processSearchFromPaging(search.currentTriples.searchHistory, search.currentTriples.current_page + 1)"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+
+                <a ng-if="search.currentTriples.current_page + 1 > search.currentTriples.num_of_pages" ng-disabled="true" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+
+                <a class="btn btn-default btn-xs"  ng-click="search.processSearchFromPaging(search.currentTriples.searchHistory, search.currentTriples.num_of_pages)"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a>
+              </div>
+
+              <div 
+                ng-if="search.fullTextSearchText !== undefined && search.currentTriples.results.length === 0 && search.currentTriples.searchHistory.isSearchAgaintsPredicate !== true">
+                <p>Your search "<b>{{search.fullTextSearchText}}</b>" did not match any triples.
+                    <p>Suggestions:</p>
+                    <ul>
+                      <li>Make sure that all words are spelled correctly.</li>
+                      <li>Try different keywords.</li>
+                      <li>Try more general keywords.</li>
+                      <li>Try fewer keywords.</li>
+                    </ul>
+                </p>
+              </div>
+
+              <div 
+                ng-if="search.fullTextSearchText !== undefined && search.currentTriples.results.length === 0 && search.currentTriples.searchHistory.isSearchAgaintsPredicate === true">
+                <p>There are no triples associated with predicate <b>{{search.currentTriples.searchHistory.queryText}}</b>.
+                <p>Suggestions:</p>
+                  <ul>
+                      <li>Try different predicate.</li>
+                  </ul>
+                </p>
+              </div>
+
+              <div ng-if="search.currentTriples.results.length > 0"><br><br></div>
+
+              <div style="margin:0;padding:0">
+                <table width="100%" class="table table-hover">
+                  <thead>
+                  <tr align="center">
+                    <th></th>
+                    <th width="33%" class="text-center">Subject</th>
+                    <th></th>
+                    <th width="33%" class="text-center">Predicate</th>
+                    <th></th>
+                    <th width="33%" class="text-center">Object</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="borderless" valign="top" ng-repeat="result in search.currentTriples.results | filter:search.filteredTriple">
+                    <td>
+                      <button ng-if="search.isSubjectExistInWorkspace(result)"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Remove {{result.subject_name}} from workspace"
+                              class="btn btn-danger btn-xs"
+                              ng-click="search.removeSubjectFromWorkspace(result)"
+                              ><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></button>
+
+                       <button ng-if="!search.isSubjectExistInWorkspace(result)"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Add {{result.subject_name}} to workspace"
+                              class="btn btn-default btn-xs"
+                              ng-click="search.addSubjectToWorkspace(result)"
+                              ><span class="glyphicon glyphicon-plus" aria-hidden="false"></span></button>
+                    </td>
+                    <td>
+                      <span ng-if="!search.filterSubject">
+                        <span ng-bind-html="result.subject_name"></span>
+                        <br>
+                        <span>
+                            <a href="{{result.subject_uri}}" target="smartQuery"><<span ng-bind-html="result.subject_uri"></span>></a>
+                        </span>
+                      </span>
+                      <span ng-if="search.filterSubject">
+                        <span ng-bind-html="result.subject_name | highlight:search.hiddenFullTextSearchText"></span>
+                        <br>
+                        <span>
+                            <a href="{{result.subject_uri}}" target="smartQuery"><<span ng-bind-html="result.subject_uri | highlight:search.hiddenFullTextSearchText"></span>></a>
+                        </span>
+                      </span>
+                    </td>
+                    <td>
+                      <button ng-if="search.isPredicateExistInWorkspace(result)"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Remove {{result.predicate_name}} from workspace"
+                              class="btn btn-danger btn-xs"
+                              ng-click="search.removePredicateFromWorkspace(result)"
+                              ><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></button>
+
+                       <button ng-if="!search.isPredicateExistInWorkspace( result )"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Add {{result.predicate_name}} to workspace"
+                              class="btn btn-default btn-xs"
+                              ng-click="search.addPredicateToWorkspace( result )"
+                              ><span class="glyphicon glyphicon-plus" aria-hidden="false"></span></button>
+                    </td>
+                    <td>
+                      <span ng-if="!search.filterPredicate">
+                        <b><span uib-popover="{{search.hashPrefixes[result.predicate_name.split(':')[0]]}}" popover-trigger="mouseenter" ng-bind-html="result.predicate_name"></span></b>
+                        <br>
+                        <span>
+                            <a href="{{result.predicate_uri}}" target="smartQuery"><<span ng-bind-html="result.predicate_uri">></span></a>
+                        </span>
+                      </span>
+                      <span ng-if="search.filterPredicate">
+                        <b><span uib-popover="@prefix {{result.predicate_name.split(':')[0]}}: {{search.hashPrefixes[result.predicate_name.split(':')[0]]}}" popover-trigger="mouseenter" ng-bind-html="result.predicate_name | highlight:search.hiddenFullTextSearchText"></span></b>
+                        <br>
+                        <span>
+                            <a href="{{result.predicate_uri}}" target="smartQuery"><<span ng-bind-html="result.predicate_uri | highlight:search.hiddenFullTextSearchText"></span>></a>
+                        </span>
+                      </span>
+                    </td>
+                    <td>
+                      <button ng-if="search.isObjectExistInWorkspace(result)"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Remove {{result.object_name}} from workspace"
+                              class="btn btn-danger btn-xs"
+                              ng-click="search.removeObjectFromWorkspace(result)"
+                              ><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></button>
+
+                       <button ng-if="!search.isObjectExistInWorkspace( result )"
+                              popover-trigger="mouseenter"
+                              popover-placement="top" popover="Add {{result.object_name}} to workspace"
+                              class="btn btn-default btn-xs"
+                              ng-click="search.addObjectToWorkspace( result )"
+                              ><span class="glyphicon glyphicon-plus" aria-hidden="false"></span></button>
+                    </td>
+                    <td>
+                      <span ng-if="!search.filterObject">
+                        <span ng-bind-html="result.object_name"></span>
+                        <br>
+                        <span>
+                            <a href="{{result.object_uri}}" target="smartQuery"><<span ng-bind-html="result.object_uri"></span>></a>
+                        </span>
+                      </span>
+                      <span ng-if="search.filterObject">
+                        <span ng-bind-html="result.object_name | highlight:search.hiddenFullTextSearchText"></span>
+                        <br>
+                        <span>
+                            <a href="{{result.object_uri}}" target="smartQuery"><<span ng-bind-html="result.object_uri | highlight:search.hiddenFullTextSearchText"></span>></a>
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="row" ng-if="search.currentTriples.results.length > 0">
+                <p><b>Available Prefixes ({{search.getPrefixesCollection().length}}): </b></p>
+                <div class="col-md-12">
+                  <div class="col-md-6" ng-repeat="prefix in search.getPrefixesCollection()">
+                      <span ><b>{{prefix.prefix}}</b>: <a href="{{prefix.uri}}">{{prefix.uri}}</a> </span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.node circle {
+  font-color: #fff;
+  fill: #eee;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font-color: #fff;
+  cursor: pointer;
+  color: #eee;
+}
+
+.text {
+  fill: #000;
+}
+
+.link {
+  color: #fff;
+  fill: none;
+  stroke: #B3B3B3;
+  stroke-width: 1.5px;
+}

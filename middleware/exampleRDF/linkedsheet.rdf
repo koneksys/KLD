@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sheet="http://script-conductive.com/linkedsheet/sheet#"
+    xmlns:column="http://script-conductive.com/linkedsheet/column#">
+
+    <rdf:Description rdf:about="http://www.example.org/spreadsheet/sheet1">
+        <sheet:Description rdf:parseType="Literal">The number of refugees in Lebanon grew steadily from 2011 through 2014</sheet:Description>
+        <sheet:Reference rdf:parseType="Literal">http://www.unicef.org/publications/files/UNICEF_Annual_Report_2014_Web_07June15.pdf</sheet:Reference>
+        <sheet:Author rdf:parseType="Literal">Somchai MeeSuk</sheet:Author>
+        <sheet:Id rdf:parseType="Literal">A0001</sheet:Id>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Sheet"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/A0001/1">
+        <column:SheetId rdf:parseType="Literal">A0001</column:SheetId>
+        <column:Year rdf:parseType="Literal">2011</column:Year>
+        <column:LebaneseLivingInPoverty rdf:parseType="Literal">12000000</column:LebaneseLivingInPoverty>
+        <column:SyrianRefugees rdf:parseType="Literal">6000</column:SyrianRefugees>
+        <column:PalestinianRefugees rdf:parseType="Literal">270000</column:PalestinianRefugees>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Column"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/A0001/2">
+        <column:SheetId rdf:parseType="Literal">A0001</column:SheetId>
+        <column:Year rdf:parseType="Literal">2012</column:Year>
+        <column:LebaneseLivingInPoverty rdf:parseType="Literal">12000000</column:LebaneseLivingInPoverty>
+        <column:SyrianRefugees rdf:parseType="Literal">130000</column:SyrianRefugees>
+        <column:PalestinianRefugees rdf:parseType="Literal">270000</column:PalestinianRefugees>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Column"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/A0001/3">
+        <column:SheetId rdf:parseType="Literal">A0001</column:SheetId>
+        <column:Year rdf:parseType="Literal">2013</column:Year>
+        <column:LebaneseLivingInPoverty rdf:parseType="Literal">12000000</column:LebaneseLivingInPoverty>
+        <column:SyrianRefugees rdf:parseType="Literal">800000</column:SyrianRefugees>
+        <column:PalestinianRefugees rdf:parseType="Literal">270000</column:PalestinianRefugees>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Column"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/A0001/4">
+        <column:SheetId rdf:parseType="Literal">A0001</column:SheetId>
+        <column:Year rdf:parseType="Literal">2014</column:Year>
+        <column:LebaneseLivingInPoverty rdf:parseType="Literal">14000000</column:LebaneseLivingInPoverty>
+        <column:SyrianRefugees rdf:parseType="Literal">12000000</column:SyrianRefugees>
+        <column:PalestinianRefugees rdf:parseType="Literal">270000</column:PalestinianRefugees>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Column"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/B0001">
+        <sheet:Description rdf:parseType="Literal">UNICEF and partners gateways to reach the most vulnerable in Lebanon</sheet:Description>
+        <sheet:Reference rdf:parseType="Literal">http://www.unicef.org/publications/files/UNICEF_Annual_Report_2014_Web_07June15.pdf</sheet:Reference>
+        <sheet:Author rdf:parseType="Literal">Jenjira SukMark</sheet:Author>
+        <sheet:Id rdf:parseType="Literal">B0001</sheet:Id>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Sheet"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://script-conductive.com/linkedsheet/B0001/1">
+        <column:SheetId rdf:parseType="Literal">B0001</column:SheetId>
+        <column:PublicSchools rdf:parseType="Literal">1278</column:PublicSchools>
+        <column:SocialDevelopmentCentres rdf:parseType="Literal">57</column:SocialDevelopmentCentres>
+        <column:PrimaryHealthCareCentres rdf:parseType="Literal">206</column:PrimaryHealthCareCentres>
+        <column:InformalSettlements rdf:parseType="Literal">1637</column:InformalSettlements>
+        <column:UNHCRRegistrationCentresAndBorderCrossings rdf:parseType="Literal">8</column:UNHCRRegistrationCentresAndBorderCrossings>
+        <column:CommunityCentres rdf:parseType="Literal">20</column:CommunityCentres>
+        <column:PalestinianCamps rdf:parseType="Literal">12</column:PalestinianCamps>
+        <column:PalestinianGatherings rdf:parseType="Literal">3</column:PalestinianGatherings>
+        <rdf:type rdf:resource="http://script-conductive.com/linkedsheet#Column"/>
+    </rdf:Description>
+
+</rdf:RDF>

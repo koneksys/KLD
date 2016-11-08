@@ -1,0 +1,164 @@
+<div class="row" style="padding:20px;">
+  <div class="col-lg-12">
+
+ </div>
+ <div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-3 noselect" id="LinkingControllerID">
+      <div style="height:800px;overflow-y:scroll;">
+        <uib-accordion>
+          <uib-accordion-group>
+            <uib-accordion-heading>
+              Saved Workspace ({{linking.countWorkspaceItems()}})
+              <a class="pull-right" href="#" ng-click="linking.clearWorkspace()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            </uib-accordion-heading>
+            <ul id="saved_workspaces" class="draggable_item" style="cursor:pointer;padding:0px;margin:0px;">
+              <li ng-repeat="resource in linking.workspace_subject.items track by $index"
+                class="workspace" 
+                style="z-index:10000;cursor:pointer;border: 0px solid;" 
+                data-resource_type="{{resource.resource_type}}" 
+                data-resource_color="{{resource.resource_color}}" 
+                data-resource_name="{{resource.resource_name}}" 
+                data-resource_uri="{{resource.resource_uri}}">
+                <div class="alert alert-warning ui-widget-content " style="width:250px;">
+                  <span class="label label-danger"><b>S</b></span>
+                  <a class="pull-right" href="#" ng-click="linking.removeItem('subject',resource.resource_uri)"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
+                  <b>{{resource.resource_name}}</b><br>{{resource.resource_uri}}
+                </div>
+              </li>
+              <li ng-repeat="resource in linking.workspace_predicate.items track by $index"
+                  class="workspace" 
+                  style="z-index:10000;cursor:pointer;border: 0px solid;" 
+                  data-resource_type="{{resource.resource_type}}" 
+                  data-resource_color="{{resource.resource_color}}" 
+                  data-resource_name="{{resource.resource_name}}" 
+                  data-resource_uri="{{resource.resource_uri}}">
+                  <div class="alert alert-danger ui-widget-content" style="width:250px;">
+                    <span class="label label-warning"><b>P</b></span>
+                    <a class="pull-right" href="#" ng-click="linking.removeItem('predicate',resource.resource_uri)"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
+                    <b>{{resource.resource_name}}</b><br>{{resource.resource_uri}}
+                  </div>
+              </li>
+              <li ng-repeat="resource in linking.workspace_object.items track by $index"
+                  class="workspace" 
+                  style="z-index:10000;cursor:pointer;border: 0px solid;" 
+                  data-resource_type="{{resource.resource_type}}" 
+                  data-resource_color="{{resource.resource_color}}" 
+                  data-resource_name="{{resource.resource_name}}" 
+                  data-resource_uri="{{resource.resource_uri}}">
+                  <div class="alert alert-info ui-widget-content" style="width:250px;">
+                    <span class="label label-danger"><b>O</b></span>
+                    <a class="pull-right" href="#" ng-click="linking.removeItem('object',resource.resource_uri)"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
+                    <b>{{resource.resource_name}}</b><br>{{resource.resource_uri}}
+                  </div>
+              </li>
+            </ul>
+          </uib-accordion-group>
+          <uib-accordion-group>
+            <uib-accordion-heading>
+              User Resource Types ({{linking.r.types.length}})
+            </uib-accordion-heading>
+            <ul id="resource_type" style="padding:0; word-break: normal" class="draggable_item">
+              <li ng-repeat="type in linking.r.types"
+                  class="workspace" 
+                  style="z-index:10000;cursor:pointer;border: 0px solid;"
+                  data-description="" 
+                  data-resource_type="resource_type" 
+                  data-resource_name="{{type.name}}" 
+                  data-resource_uri="{{type.uri}}">
+                  <div class="alert alert-success ui-widget-content" style="width:250px;">
+                    <span class="label label-info"><b>{{type.name}}</b></span>
+                    <br>
+                    <a href="{{type.uri}}">{{type.uri}}</a>
+                  </div>
+              </li>
+            </ul>
+          </uib-accordion-group>
+          <uib-accordion-group ng-repeat="lib in linking.libs">
+            <uib-accordion-heading>
+                {{lib.name}} ({{lib.resources.length}})
+            </uib-accordion-heading>
+            <ul id="{{lib.id}}" style="padding:0; word-break: normal" class="draggable_item">
+              <li ng-repeat="resource in lib.resources"
+                  class="workspace" 
+                  style="z-index:10000;cursor:pointer;border: 0px solid;" 
+                  data-description="{{resource.description}}" 
+                  data-resource_type="{{resource.resource_type}}" 
+                  data-resource_color="{{resource.resource_color}}" 
+                  data-resource_name="{{resource.resource_name}}" 
+                  data-resource_uri="{{resource.resource_uri}}">
+                  <div class="alert alert-success ui-widget-content" style="width:250px;">
+                    <span class="label label-info"><b>{{resource.resource_name}}</b></span>
+                    <br>
+                    <a href="{{resource.resource_uri}}">{{resource.resource_uri}}</a>
+                    <br>
+                    {{resource.description}}
+                  </div>
+              </li>
+            </ul>
+          </uib-accordion-group>
+        </uib-accordion>
+      </div>
+    </div>
+    <div class="col-lg-9 noselect">
+
+        <div style="height:100%;overflow-y:scroll;">
+          <uib-accordion close-others="true" ng-show="false">
+            <uib-accordion-group>
+              <uib-accordion-heading>
+                <b>Datasets selection</b>
+              </uib-accordion-heading>
+                <div class="row" style="margin: 10px;">
+                  <span style="margin-right: 20px;" ng-repeat="profile in linking.r.datasetProfiles | reverse">
+                    <input type="radio" ng-model="linking.datasetSearchScope" value="{{profile.identifier}}">&nbsp;&nbsp;
+                      <span ng-if="profile.identifier === linking.defaultDomain" href="{{profile.identifier}}">Default (<{{profile.identifier}}>)</span>
+                      <span ng-if="profile.identifier !== linking.defaultDomain" href="{{profile.identifier}}"><{{profile.identifier}}></span><br>
+                  </span>
+                </div>
+            </uib-accordion-group>
+          </uib-accordion>
+
+          <table id="editor_table" class="table table-bordered">
+            <tr>
+              <td width="30%" class="text-center"><b>Subject</b></td>
+              <td width="30%" class="text-center"><b>Predicate</b></td>
+              <td width="30%" class="text-center"><b>Object</b></td>
+              <td class="text-center"><b>Actions</b></td>
+            </tr>
+            <tr valign="top" ng-repeat="row in linking.editor.rows track by $index">
+              <td>
+                  <ul style="height:200px;padding:0;" class="draggable_item_{{$index}}_subject">
+                      <li id="item_{{$index}}_subject" style="border: 0px solid;"></li>
+                  </ul>
+              </td>
+              <td>
+                  <ul style="height:200px;padding:0;" class="draggable_item_{{$index}}_predicate">
+                     <li id="item_{{$index}}_predicate" style="border: 0px solid;"></li>
+                  </ul>
+              </td>
+              <td>
+                 <ul style="height:200px;padding:0;" class="draggable_item_{{$index}}_object">
+                      <li id="item_{{$index}}_object" style="border: 0px solid;"></li>
+                 </ul>
+              </td>
+              <td>    
+                <button class="btn btn-block btn-default" ng-click="linking.saveLink($index,row)" ng-hide="!row.subjectReady || !row.predicateReady || !row.objectReady">Save</button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <div class="btn-group pull-right">
+                  <button class="btn btn-default" ng-click="linking.addRow()"><span class="glyphicon glyphicon-plus" aria-hidden="false"></span></button>
+                  <button class="btn btn-default" ng-click="linking.removeRow()"><span class="glyphicon glyphicon-minus" aria-hidden="false"></span></button>
+                  <button class="btn btn-default" ng-click="linking.clearTable()">Clear</button>
+                  <button class="btn btn-default" ng-click="linking.saveAllLinks()">Save All</button>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </div>
+ </div>
+</div>
+

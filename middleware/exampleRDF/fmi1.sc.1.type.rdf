@@ -1,0 +1,14 @@
+  <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oslc="http://open-services.net/ns/core#"
+    xmlns:oslc4jsfmi_model_description="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:oslc4jsfmi="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <oslc4jsfmi:ScalarVariableType rdf:about="https://www.fmi-standard.org/scalarVariableType//p0b4hl9dintcg4h017bqgpbg6s/Boolean">
+    <oslc4jsfmi:ScalarVariableType_start rdf:parseType="Literal"
+    >0.0</oslc4jsfmi:ScalarVariableType_start>
+    <oslc4jsfmi:ScalarVariableType_name rdf:parseType="Literal"
+    >Boolean</oslc4jsfmi:ScalarVariableType_name>
+  </oslc4jsfmi:ScalarVariableType>
+</rdf:RDF>

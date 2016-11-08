@@ -1,0 +1,37 @@
+
+<div class="modal-modal">
+  <div class="modal-body">
+
+        <p class="text-danger text-center"><b>{{dialog.authenticationMessage}}</b></p>
+        <!--
+        <div class="form-group">
+          <label><span ng-bind-html="'menu.organization' | translate"></span></label>
+          <select class="form-control" ng-model="dialog.selectedOrg">
+            <option value="---Please select---">---Please select---</option> 
+            <option value="{{org.organization}}" ng-repeat="org in dialog.organizations">{{org.organization}}</option>
+          </select>
+        </div>
+        -->
+        <div class="form-group">
+          <label>
+            <span ng-bind-html="'menu.email' | translate"> <span class="text-danger">{{dialog.emailValidationMessage}}</span>
+          </label>
+          <input type="email" placeholder="email" class="form-control" ng-model="dialog.email" ng-keyup="$event.keyCode == 13 && dialog.submit()"/>
+        </div>
+        <div class="form-group">
+          <label>
+            <span ng-bind-html="'menu.password' | translate"> <span class="text-danger">{{dialog.passwordValidationMessage}}</span>
+          </label>
+          <input type="password" placeholder="password" class="form-control" ng-model="dialog.password" ng-keyup="$event.keyCode == 13 && dialog.submit()"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success"
+            type="button" ng-click="dialog.submit()"><span ng-bind-html="'menu.signIn' | translate"></button>
+            <button class="btn btn-danger"
+            type="button" ng-click="dialog.cancel()"><span ng-bind-html="'menu.cancel' | translate"></button>
+        </div>
+
+  </div>
+</div>
+
+</span>

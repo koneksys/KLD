@@ -1,0 +1,46 @@
+  "sparqlQuestions": [
+    {
+      "category": "World fact",
+      "questions": [
+        {
+          "name": "List of cities in Canada",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE {  ?city dbpowl:country dbpres:Canada }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE {  ?city dbpowl:country dbpres:Canada }"
+        },
+        {
+          "name": "List of cities in United States",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE { ?city dbpowl:country dbpres:United_States }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE { ?city dbpowl:country dbpres:United_States }"
+        },
+        {
+          "name": "List of cities in India",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE { ?city dbpowl:country dbpres:India }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE { ?city dbpowl:country dbpres:India }"
+        },
+        {
+          "name": "List of cities in Thailand",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE { ?city dbpowl:country dbpres:Thailand }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE { ?city dbpowl:country dbpres:Thailand }"
+        },
+        {
+          "name": "List of cities in China",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE { ?city dbpowl:country dbpres:China }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE { ?city dbpowl:country dbpres:China }"
+        },
+        {
+          "name": "List of cities in Mexico",
+          "count": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT (COUNT(*) AS ?count) WHERE { ?city dbpowl:country dbpres:Mexico }",
+          "query": "PREFIX dbpowl: <http://dbpedia.org/ontology#> PREFIX dbpres: <http://dbpedia.org/resource/> SELECT * WHERE { ?city dbpowl:country dbpres:Mexico }"
+        }
+      ]
+    }, {
+      "category": "Simulink",
+      "questions": [
+        {
+          "name": "List all blocks in Simulink House Heat that typed with <http://mathworks.com/simulink/rdf#Block>",
+          "count": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT (COUNT(*) AS ?count) WHERE { ?block rdf:type <http://mathworks.com/simulink/rdf#Block> }",
+          "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT * WHERE { ?block rdf:type <http://mathworks.com/simulink/rdf#Block> }"
+        }
+      ]
+    }
+  ]

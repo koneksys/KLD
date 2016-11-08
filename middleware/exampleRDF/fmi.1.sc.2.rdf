@@ -1,0 +1,23 @@
+  <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oslc="http://open-services.net/ns/core#"
+    xmlns:oslc4jsfmi_model_description="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/"
+    xmlns:j.0="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ScalarVariable/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:oslc4jsfmi="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <oslc4jsfmi:ScalarVariable rdf:about="https://www.fmi-standard.org/scalarVariable//olei7o4q85k4gjfeqogot4qc2q/A+variable">
+    <j.0:scalarVariableType rdf:resource="https://www.fmi-standard.org/scalarVariableType//r5gkfa4ek656ke9qrevloquvjh/Real"/>
+    <oslc4jsfmi:ScalarVariable_variability rdf:parseType="Literal"
+    >continuous</oslc4jsfmi:ScalarVariable_variability>
+    <oslc4jsfmi:ScalarVariable_initial rdf:parseType="Literal"
+    >exact</oslc4jsfmi:ScalarVariable_initial>
+    <oslc4jsfmi:ScalarVariable_causality rdf:parseType="Literal"
+    >local</oslc4jsfmi:ScalarVariable_causality>
+    <oslc4jsfmi:ScalarVariable_valueReference rdf:parseType="Literal"
+    >100</oslc4jsfmi:ScalarVariable_valueReference>
+    <oslc4jsfmi:ScalarVariable_description rdf:parseType="Literal"
+    >Speed of the ball</oslc4jsfmi:ScalarVariable_description>
+    <oslc4jsfmi:ScalarVariable_name rdf:parseType="Literal">A variable</oslc4jsfmi:ScalarVariable_name>
+  </oslc4jsfmi:ScalarVariable>
+</rdf:RDF>

@@ -1,0 +1,5 @@
+dist
+npm-debug.log
+node_modules
+src/profile.*
+asset.profile.*

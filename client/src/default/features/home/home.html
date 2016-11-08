@@ -1,0 +1,116 @@
+<div cg-busy="{promise:myPromise,message:'Wait...',backdrop:true,wrapperClass: 'backdrop'}">
+
+<nav ng-show="!home.clickedLogout" class="navbar navbar-inverse" style="border-radius: 0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="display:inline;">{{home.product}}</a>
+    </div>
+    <div class="btn-group navbar-header pull-right"  uib-dropdown keyboard-nav style="margin-top:5px;">
+      <a href="#" ng-click="home.reload()" class="navbar-btn btn dropdown-toggle" data-toggle="dropdown"><b>{{home.sessionManagerService.get('profile').email}}</b></small></a>
+          <ul class="nav dropdown-menu">
+              <li><a><i class="glyphicon glyphicon-info-sign"></i> Datasets: {{ home.r.datasetProfiles.length | number}} out of 5</a></li>
+              <li><a><i class="glyphicon glyphicon-info-sign"></i> Linked Data: {{ (home.sessionManagerService.get('profile').tripleUsage / 100000) * 100 | number}} % Usage - {{home.sessionManagerService.get('profile').tripleUsage | number}} / 100,000</a></li>
+              <li class="nav-divider"></li>
+              <li><a><i class="glyphicon glyphicon-cog"></i> Apps</a></li>
+              <li>
+                <a href="#" style="padding-left: 40px;" ng-click="home.openDashboard(0) ">
+                  <i class="glyphicon glyphicon-cog"></i> {{ 'tab.dashboard' | translate }}</a>
+              </li>
+              <li ng-repeat="app in home.authorizedApps | orderBy : '-name'">
+                <a href="#" style="padding-left: 40px;" ng-click="home.openDashboard($index + 1) ">
+                  <i class="glyphicon glyphicon-cog"></i> {{ 'tab.' +  app.name | translate }}</a>
+              </li>
+              <li>
+                <a href="#" style="padding-left: 40px;" ng-click="home.openDashboard(home.authorizedApps.length + 1) ">
+                  <i class="glyphicon glyphicon-cog"></i> {{ 'tab.contact' | translate }}</a>
+              </li>
+              <li class="nav-divider"></li>
+              <li><a style="display:inline"><span class="glyphicon glyphicon-globe"></span> {{ 'menu.language' | translate }} </a>
+                  <a href="" style="display:inline;padding:0px;" ng-click="home.lang('en')">{{ 'menu.en' | translate }}</a> |
+                  <a href="" style="display:inline;padding:0px;" ng-click="home.lang('de')">{{ 'menu.de' | translate }}</a> |
+                  <a href="" style="display:inline;padding:0px;" ng-click="home.lang('fr')">{{ 'menu.fr' | translate }}</a> |
+                  <a href="" style="display:inline;padding:0px;" ng-click="home.lang('th')">{{ 'menu.th' | translate }}</a>
+              </li>
+              <li class="nav-divider"></li>
+              <li><a href="" ng-click="home.logout()"><i class="glyphicon glyphicon-log-out"></i> <span ng-bind-html="'menu.signOut' | translate"></span></a></li>
+          </ul>
+          
+    </div>
+  </div>
+</nav>
+
+<uib-tabset active="home.tabActive" style="margin-top:-20px;padding-top:0px;" ng-show="!home.clickedLogout">
+ <uib-tab index="0">
+      <uib-tab-heading><b><span class="glyphicon glyphicon-{{home.tabIconMap['dashboard']}}"></span>   {{ 'tab.dashboard' | translate }}</b></uib-tab-heading>
+      <ui-view name="dashboard"></ui-view >
+  </uib-tab>
+  <uib-tab index="$index + 1" ng-repeat="app in home.authorizedApps | orderBy : '-name'">
+      <uib-tab-heading><b><span class="glyphicon glyphicon-{{home.tabIconMap[app.name]}}"></span> {{ 'tab.' +  app.name | translate }}</b></uib-tab-heading>
+      <ui-view name="{{app.name}}"></ui-view >
+  </uib-tab>
+
+  <uib-tab index="home.authorizedApps.length + 2">
+      <uib-tab-heading><b><span class="glyphicon glyphicon-{{home.tabIconMap['contact']}}"></span>  {{ 'tab.contact'| translate }}</b></uib-tab-heading>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>{{home.developerOrg}}</h2>
+            <address>
+              <p>
+              <span class="glyphicon glyphicon-map-maker"></span>{{home.developerAddress}}<br>
+              <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;<a href="mailto:{{home.developerEmail}}">{{home.developerEmail}}</a><br>
+              <span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;<a href="tel:{{home.developerPhone}}">{{home.developerPhone}}</a><br>
+              <span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;<a href="{{ home.developerWebsite }}" target="website">{{ home.developerWebsite }} </a
+              </p>
+            </address>
+          </div>
+          <div class="col-md-6">
+            <form name="contactForm">
+              <h4>Send a Message</h4>
+                <div class="form">
+                  <div class="form-group">
+                    <label>Name</label><br>
+                    <input type="text" ng-model="home.visitorName" class="form-control" name="visitorName" required placeholder="Your name">
+                    <small style="padding:10px;"
+                          ng-show="contactForm.visitorName.$error.required">* Name is required</small>
+                    <small style="padding:10px;"
+                          ng-show="contactForm.visitorName.$error.pattern">* Name cannot be an empty</small>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label><br>
+                    <input type="email" ng-model="home.visitorEmail" class="form-control" name="visitorEmail" required placeholder="Your email">
+                    <small style="padding:10px;"
+                           ng-show="contactForm.visitorEmail.$error.required">* Email is required</small>
+                    <small style="padding:10px;"
+                           ng-show="contactForm.visitorEmail.$error.email">* Not a valid email address</small>
+                  </div>
+                   <div class="form-group">
+                    <label>Subject</label><br>
+                    <input type="text" ng-model="home.visitorSubject" class="form-control" name="visitorSubject" required placeholder="Your subject">
+                    <small style="padding:10px;"
+                          ng-show="contactForm.visitorSubject.$error.required">* Subject is required</small>
+                  </div>
+                  <div class="form-group">
+                    <label>Message</label>
+                    <textarea ng-model="home.visitorMessage" class="form-control" name="visitorMessage" rows="6" required></textarea>
+                    <small style="padding:10px;"
+                          ng-show="contactForm.visitorMessage.$error.required">* Body is required</small>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" ng-disabled="home.inprogress || contactForm.$invalid" class="btn btn-success" ng-click="home.submitContactForm()">Send</button>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div> 
+      </div>
+  </uib-tab>
+</uib-tabset>
+
+<div class="footer">
+  <div class="container">
+    <p class="text-center">© Copyright <a href="{{ home.developerWebsite }}" target="website">{{ home.developerOrg }} </a> 2016</p>
+  </div>
+</div>
+
+</div>

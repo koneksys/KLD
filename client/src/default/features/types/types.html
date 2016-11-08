@@ -1,0 +1,118 @@
+<div class="row" style="overflow-x: hidden;padding:20px;">
+
+  <div class="col-md-12">
+
+    <div class="col-md-3">
+      <h4>Resource Types</h4>
+      <input type="text" class="form-control" placeholder="search types" ng-model="types.searchType" />
+      <table width="100%" class="table" style="margin-top:20px;padding:0; border: 0px solid;">
+        <tbody>
+          <tr ng-repeat="type in types.r.types  | filter:types.searchType" class="primary">
+            <td>
+              <a href="#" ng-click="types.listInstances(type.name, type.uri, type.num)"><b>{{type.name}} ({{type.num | number}})</b><br>
+              </a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-9" ng-show="types.typeInstances.length > 0">
+
+
+      <h4>{{types.total | number}} Linked data resources of {{types.selectedResourceType.name}}</h4>
+
+      <div class="row" style="height:900px;overflow-y:visible;padding-top: 10px;">
+
+        <div class="col-md-12 bg-info" uib-collapse="types.collapse" style="width:70%;padding:1px;border-radius: 5px;border: 2px solid #000;position:absolute;top:150px;z-index:10000">
+          <uib-tabset>
+            <uib-tab>
+              <uib-tab-heading><b>Table</b></uib-tab-heading>
+              <table class="table" ng-if="types.attrBlock.blocks.length > 0">
+                <thead>
+                  <tr class="active">
+                    <th><a href="#" class="btn btn-xs btn-default" ng-click="types.closeAttrs()">Close</a></th>
+                  </tr>
+                </thead>
+                <tr class="active" valign="top">
+                  <td>
+                    <b>Resource: </b>
+                    <pre>
+{{types.attrBlock.subject.uri}}</pre>
+                  </td>
+                </tr>
+                <tr class="active" valign="top">
+                  <td>
+                    <b>Properties: </b>
+                    <uib-accordion close-others="false">
+                      <uib-accordion-group ng-repeat="block in types.attrBlock.blocks">
+                        <uib-accordion-heading>
+                        {{block.predicateUri}} ({{block.objects.length}})
+                        </uib-accordion-heading>
+<pre>
+<span ng-repeat="object in block.objects">{{object.uri}}
+</span></pre>
+                        </div>
+                      </uib-accordion-group>
+                    </uib-accordion>
+                  </td>
+                </tr>
+              </table>
+            </uib-tab>
+            <uib-tab>
+              <uib-tab-heading><b>Plain text</b></uib-tab-heading>
+              <table class="table" ng-if="types.attrBlock.blocks.length > 0">
+                <thead>
+                <tr class="active">
+                    <th><a href="#" class="btn btn-xs btn-default" ng-click="types.closeAttrs()">Close</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                  <td><pre>
+Date: {{ types.attrBlock.creationDate | date:'medium' }}
+Resource: 
+
+  {{types.attrBlock.subject.uri}}
+
+Properties:
+    <span ng-repeat="block in types.attrBlock.blocks">
+  {{block.predicateUri}} ({{block.objects.length}})
+      <i ng-repeat="object in block.objects">
+        {{object.uri}}</i>
+    </span>
+                  </pre></td>
+                </tr>
+                </tbody>
+              </table>
+            </uib-tab>
+          </uib-tabset>
+
+        </div>
+
+        <uib-tabset>
+          <uib-tab>
+            <uib-tab-heading>List</uib-tab-heading>
+            <div style="padding-top:30px;">
+              <div class="col-md-4" ng-repeat="triple in types.typeInstances | filter:types.searchLinkedData">
+                <a href="#" style="margin:2px;" ng-click="types.showAttrs(triple.Resource.value)" uib-popover="{{triple.Resource.value}}" popover-placement="center-botton" popover-trigger="mouseenter">{{types.vis.humanReadable(triple.Resource.value)}}</a>
+              </div>
+            </div>
+          </uib-tab>
+          <uib-tab>
+            <uib-tab-heading>Visualization</uib-tab-heading>
+            <div class="col-md-12" style="padding-top:30px;" types-visualizer graph="types.graph" show-attrs="types.showAttrs(uri)" ng-show="types.typeInstances.length > 0"></div>
+          </uib-tab>
+        </uib-tabset>
+
+        <div class="col-md-12" style="padding-top: 30px;">
+          Pages 
+          <span ng-repeat="page in types.pages track by $index">
+            <a href="#" ng-if="($index + 1) === types.currentPage" ng-click="types.nextPage($index + 1)" class="bg-success" style="margin:1px;padding:3px;">{{$index + 1}}</a>
+            <a href="#" ng-if="($index + 1) !== types.currentPage" ng-click="types.nextPage($index + 1)" style="margin:1px;">{{$index + 1}}</a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

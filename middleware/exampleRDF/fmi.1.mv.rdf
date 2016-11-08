@@ -1,0 +1,20 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oslc="http://open-services.net/ns/core#"
+    xmlns:oslc4jsfmi_model_description="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:oslc4jsfmi="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <oslc4jsfmi:ModelVariables rdf:about="https://www.fmi-standard.org/modelVariables//lo32fscnjv56trrmvmr69p6u93">
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//vbkurkvl6cc0cr41i46m9hhnpj/HIGHT_SPEED+alias"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//4c969iascka9bui52nasndag6e/GRAVITY"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//q7ut9edj4qu9qj0n6uvohllsu/LOGGER_TEST_BOOLEAN"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//lhtbgq1f6lddkpsgt2g9g79b77/HIGHT_SPEED"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//bbaj6d6b682uu9rb56kgujnf61/BOUNCE_COF"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//82s92l9nngmib1aapc1jhbmn8k/LOGGER_TEST"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//olei7o4q85k4gjfeqogot4qc2q/A+variable"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//v1kkbo487f6c2g3g4jh2oupk0n/HIGHT_ACC"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//sae7taf1aoqjpagii2qep3g1ir/HIGHT"/>
+    <oslc4jsfmi:ModelVariables_scalarVariable rdf:resource="https://www.fmi-standard.org/scalarVariable//1chhrkajuc8ih8q8f5nm0dloo0/LOGGER_TEST_INTEGER"/>
+  </oslc4jsfmi:ModelVariables>
+</rdf:RDF>

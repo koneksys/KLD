@@ -1,0 +1,35 @@
+<uib-tabset>
+  <uib-tab>
+    <uib-tab-heading><b><span class="glyphicon glyphicon-file"></span>  {{ 'tab.importfile' | translate }}</b></uib-tab-heading>
+    <ui-view name="importfile"></ui-view>
+  </uib-tab>
+  <uib-tab>
+    <uib-tab-heading><b><span class="glyphicon glyphicon-globe"></span>  {{ 'tab.importoslc' | translate }}</b></uib-tab-heading>
+    <ui-view name="importoslc"></ui-view>
+  </uib-tab>
+  <uib-tab>
+    <uib-tab-heading><b><span class="glyphicon glyphicon-info-sign"></span>  {{ 'tab.importlog' | translate }}</b></uib-tab-heading>
+    <div ng-if="import.latest20ImportLogs.length > 0" style="hidden;padding:20px;">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Import Data</th>
+            <th>Import Id</th>
+            <th>Import Files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="log in import.latest20ImportLogs | reverse">
+            <td>{{ log.creationDate | date:'medium'}}</td>
+            <td>{{ log._id }}</td>
+            <td>
+              <div ng-repeat="l in log.logs">
+                <a href="{{ import.importedFileBasedUrl() }}/{{ log._id }}/{{$index}}" target="_blank">{{ l.rdfFile }} ({{ l.countTriple }} triples)</a><br>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </uib-tab>
+</uib-tabset>

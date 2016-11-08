@@ -1,0 +1,24 @@
+<div ng-disabled="admin.inprogress">
+  <div class="col-md-12">
+
+    <div style="padding:20px;">
+        <h1 ng-if="admin.inprogress" class="bg-warning" style="padding:20px;">Processing...</h1>
+
+        <button class="btn btn-danger" ng-click="admin.emptyOrgData(true, true)" ng-disabled="admin.inprogress">
+        <span class="glyphicon glyphicon-refresh"></span>
+         Initiate/Cleanup Provisioning</button>
+        <br><br>
+        <!--
+        <button class="btn btn-danger" ng-click="admin.deleteProvisioningDatabase()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-minus-sign"></span> Initiate new provisioning</button>
+        <button class="btn btn-danger" ng-click="admin.addProvisioning()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-plus-sign"></span> Add provisioning</button>
+        <button class="btn btn-danger" ng-click="admin.deleteProvisioning()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-minus-sign"></span> Delete provisioning</button>
+        <button class="btn btn-danger" ng-click="admin.startDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Start Datastore Service</button>
+        <button class="btn btn-danger" ng-click="admin.stopDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Stop Datastore Service</button>
+        <br><br>
+        <a href="" ng-click="admin.clearAlerts()">Clear notifications</a>
+        <br><br>
+        -->
+        <uib-alert ng-repeat="alert in admin.alerts | reverse" type="{{alert.type}}" close="admin.closeAlert($index)">{{alert.msg}}</uib-alert>
+    </div>
+  </div>
+</div>

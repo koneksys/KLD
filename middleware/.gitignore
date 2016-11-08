@@ -1,0 +1,14 @@
+profiles/*.json
+node_modules/
+generatedPatches/*
+solr/server/solr/*
+!solr/server/solr/configsets
+!solr/server/solr/solr.xml
+!solr/server/solr/zoo.cfg
+!solr/server/solr/README.txt
+solr/server/logs/*
+oslcadapter/logs/*
+oslcadapter/work/*
+oslcadapter/temp/*
+data
+!data/readme.txt

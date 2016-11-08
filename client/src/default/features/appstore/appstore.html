@@ -1,0 +1,16 @@
+<div class="row" style="overflow-x: hidden;padding:20px;">
+  <div class="col-md-12">
+    <p>Available Apps</p>
+    <table class="table table-hover">
+      <tr ng-repeat="app in appstore.authorizedApps| orderBy: '-name'">
+        <td width="30%">{{app.name | uppercase}}</td>
+        <td width="70%"
+            ng-if="app.isInstalled">
+            <a href="" ng-click="appstore.uninstall(app.name)">Uninstall</a>
+        </td>
+        <td width="70%"
+            ng-if="!app.isInstalled"><a href="" ng-click="appstore.install(app.name)">Install</a>
+        </td>
+      </tr>
+    </table>
+</div>

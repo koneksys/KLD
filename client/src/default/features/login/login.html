@@ -1,0 +1,23 @@
+<div cg-busy="{promise:myPromise,message:'Wait...',backdrop:true,wrapperClass: 'backdrop'}">
+
+<div class="row" style="padding:100px;">
+  <div class="col-md-12">
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="text-center">{{login.product}}</h1> 
+        <p class="text-center"><small>{{login.clientBuild}}</small></p>
+        <br><br>
+        <h2 class="text-center"><a class="btn btn-primary btn-lg" href="#" ng-click="login.login()"><span ng-bind-html="'menu.demo' | translate"></span></a></h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="container">
+    <p class="text-center">© Copyright <a href="{{ login.developerWebsite }}" target="website">{{ login.developerOrg }} </a> 2016 - {{login.clientBuild}}</p>
+  </div>
+</div>
+
+</div>

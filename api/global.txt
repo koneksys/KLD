@@ -1,0 +1,4 @@
+global.env = local | newFeatureReview | productionMirror | production
+global.testDbUrlsResult = []
+global.dbUrls = [<clientId>]
+global.dbConnections[<clientId>]

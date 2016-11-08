@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    
+    xmlns:simulink_line="http://mathworks.com/simulink/rdf#Line/"
+    
+    xmlns:simulink="http://mathworks.com/simulink/rdf#"
+    
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    
+    xmlns:oslc_rm="http://open-services.net/ns/rm#"
+    
+    xmlns:oslc="http://open-services.net/ns/core#"
+    
+    xmlns:oslc_data="http://open-services.net/ns/servicemanagement/1.0/"
+    
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    
+    xmlns:simulink_parameter="http://mathworks.com/simulink/rdf#Parameter/"
+    
+    xmlns:simulink_outputport="http://mathworks.com/simulink/rdf#Outputport/"
+    
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    
+    xmlns:simulink_block="http://mathworks.com/simulink/rdf#Block/"
+    
+    xmlns:simulink_model="http://mathworks.com/simulink/rdf#Model/"
+    
+    xmlns:simulink_inputport="http://mathworks.com/simulink/rdf#Inputport/"
+    
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" >
+    <rdf:Description rdf:nodeID="A0">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterSwitch::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeatFlow::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum1::outport::Toutdoors">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/BusCreator::inport::Toutdoors"/>
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/FahrenheittoCelsius::inport::Toutdoors"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Sum1::outport::Toutdoors"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://Axel-PC:8181/oslc4jsimulink/services/sldemo_househeat/lines">
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum1::outport::Toutdoors"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::OutdoorTempTout::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Integrator::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Divide::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::R-value::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterSwitch::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Integrator::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum2::outport::Temperature_Difference"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::On::Off::outport::Thermostat_Command_(On::Off)"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CostCalculator::outport::HeatCost"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::HeaterQDotIn::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CelsiustoFahrenheit::outport::Tindoors"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::outport::blower_cmd"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Terr::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterAirTemperature::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::1"/>
+        <oslc:totalCount>30</oslc:totalCount>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum1::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::Tout"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum::outport::Terr"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::1::Mc::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/BusCreator::outport::Temperatures"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Sum2::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/DailyTempVariation::outport::1"/>
+        <rdf:type rdf:resource="http://open-services.net/ns/core#ResponseInfo"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeatGain::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/SetPoint::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Troom::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Relay1::outport::1"/>
+        <rdfs:member rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/AvgOutdoorTemp::outport::1"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::HeaterQDotIn::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum1::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::HeaterQDotIn::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::inport::2"/>
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum::inport::2"/>
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/CelsiustoFahrenheit::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A1">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/BusCreator::outport::Temperatures"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/PlotResults::inport::Temperatures"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::outport::blower_cmd">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::inport::blower_cmd"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Thermostat::outport::blower_cmd"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A2">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum::outport::Terr"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::inport::Terr"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Troom::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::Sum2::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::Troom::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A3">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Integrator::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::RoomTempTroom::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A4">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CostCalculator::outport::HeatCost">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/PlotResults::inport::HeatCost"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/CostCalculator::outport::HeatCost"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A5">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Troom::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::Sum2::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A6">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A7">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum1::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::1::Mc::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterAirTemperature::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::Sum2::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::HeaterAirTemperature::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::R-value::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Divide::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::R-value::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/DailyTempVariation::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum1::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/DailyTempVariation::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum::outport::Terr">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::inport::Terr"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Sum::outport::Terr"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Sum2::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeatGain::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::Sum2::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A8">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::outport::blower_cmd"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::inport::blower_cmd"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Divide::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum1::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::Divide::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A9">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum1::outport::Toutdoors"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/BusCreator::inport::Toutdoors"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::Tout">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::inport::Tout"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/FahrenheittoCelsius::outport::Tout"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/BusCreator::outport::Temperatures">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/PlotResults::inport::Temperatures"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/BusCreator::outport::Temperatures"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Integrator::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum2::inport::1"/>
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::RoomTempTroom::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::Integrator::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A10">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::HeaterQDotIn::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum1::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/AvgOutdoorTemp::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum1::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/AvgOutdoorTemp::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A11">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Integrator::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum2::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum2::outport::Temperature_Difference">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Divide::inport::Temperature_Difference"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::Sum2::outport::Temperature_Difference"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum1::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::1::Mc::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::Sum1::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A12">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Integrator::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A13">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::Sum2::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeatGain::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A14">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Relay1::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::Blowerswitch::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Integrator::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/CostCalculator::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Integrator::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A15">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterAirTemperature::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::Sum2::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A16">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeatGain::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeaterSwitch::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A17">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Terr::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::Relay1::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Thermostat::Terr::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A18">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::Tout"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::inport::Tout"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/FahrenheittoCelsius::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/FahrenheittoCelsius::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A19">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::R-value::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Divide::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A20">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CostCalculator::outport::HeatCost"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/PlotResults::inport::HeatCost"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A21">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::OutdoorTempTout::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum2::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A22">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Sum1::outport::Toutdoors"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/FahrenheittoCelsius::inport::Toutdoors"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::On::Off::outport::Thermostat_Command_(On::Off)">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeaterSwitch::inport::Thermostat_Command_(On::Off)"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::On::Off::outport::Thermostat_Command_(On::Off)"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeatGain::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeaterSwitch::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::HeatGain::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::inport::1"/>
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Integrator::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A23">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/AvgOutdoorTemp::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum1::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A24">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/DailyTempVariation::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum1::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::HeaterSwitch::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeatFlow::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Heater::HeaterSwitch::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A25">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Sum2::outport::Temperature_Difference"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Divide::inport::Temperature_Difference"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A26">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Sum::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CelsiustoFahrenheit::outport::Tindoors">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/BusCreator::inport::Tindoors"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/CelsiustoFahrenheit::outport::Tindoors"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::1::Mc::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Integrator::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::1::Mc::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A27">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Heater::On::Off::outport::Thermostat_Command_(On::Off)"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Heater::HeaterSwitch::inport::Thermostat_Command_(On::Off)"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A28">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Terr::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::Relay1::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/SetPoint::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/FahrenheittoCelsius::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/SetPoint::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A29">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Integrator::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/CostCalculator::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/Thermostat::Relay1::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/Thermostat::Blowerswitch::inport::1"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/Thermostat::Relay1::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A30">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::1::Mc::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Integrator::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::OutdoorTempTout::outport::1">
+        <simulink_line:targetPort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum2::inport::2"/>
+        <simulink_line:sourcePort rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/outputports/House::OutdoorTempTout::outport::1"/>
+        <rdf:type rdf:resource="http://mathworks.com/simulink/rdf#Line"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A31">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/SetPoint::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/FahrenheittoCelsius::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A32">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/CelsiustoFahrenheit::inport::1"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A33">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/House::Divide::outport::1"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/House::Sum1::inport::2"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="A34">
+        <rdf:subject rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/lines/CelsiustoFahrenheit::outport::Tindoors"/>
+        <rdf:predicate rdf:resource="http://mathworks.com/simulink/rdf#Line/targetPort"/>
+        <rdf:object rdf:resource="http://localhost:8181/oslc4jsimulink/services/sldemo_househeat/inputports/BusCreator::inport::Tindoors"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+    </rdf:Description>
+</rdf:RDF>

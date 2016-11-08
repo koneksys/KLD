@@ -1,0 +1,23 @@
+  <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oslc="http://open-services.net/ns/core#"
+    xmlns:oslc4jsfmi_model_description="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/"
+    xmlns:j.0="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ScalarVariable/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:oslc4jsfmi="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <oslc4jsfmi:ScalarVariable rdf:about="https://www.fmi-standard.org/scalarVariable//q7ut9edj4qu9qj0n6uvohllsu/LOGGER_TEST_BOOLEAN">
+    <j.0:scalarVariableType rdf:resource="https://www.fmi-standard.org/scalarVariableType//p0b4hl9dintcg4h017bqgpbg6s/Boolean"/>
+    <oslc4jsfmi:ScalarVariable_variability rdf:parseType="Literal"
+    >continuous</oslc4jsfmi:ScalarVariable_variability>
+    <oslc4jsfmi:ScalarVariable_initial rdf:parseType="Literal"
+    >calculated</oslc4jsfmi:ScalarVariable_initial>
+    <oslc4jsfmi:ScalarVariable_causality rdf:parseType="Literal"
+    >local</oslc4jsfmi:ScalarVariable_causality>
+    <oslc4jsfmi:ScalarVariable_valueReference rdf:parseType="Literal"
+    >0</oslc4jsfmi:ScalarVariable_valueReference>
+    <oslc4jsfmi:ScalarVariable_description rdf:parseType="Literal"
+    >This is only used to test logger replace function #b0#</oslc4jsfmi:ScalarVariable_description>
+    <oslc4jsfmi:ScalarVariable_name rdf:parseType="Literal">LOGGER_TEST_BOOLEAN</oslc4jsfmi:ScalarVariable_name>
+  </oslc4jsfmi:ScalarVariable>
+</rdf:RDF>

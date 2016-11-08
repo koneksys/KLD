@@ -1,0 +1,24 @@
+ <rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oslc4jsfmi_fmu_model_description="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/"
+    xmlns:oslc="http://open-services.net/ns/core#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:oslc4jsfmi="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#"
+    xmlns:oslc4jsfmi_fmu="http://localhost:8686/oslc4jfmi/services/rdfvocabulary#FMU/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <oslc4jsfmi:FMU rdf:about="https://www.fmi-standard.org/fmi2.0/fmu/BouncingBall_me.fmu">
+    <oslc4jsfmi_fmu:modelDescription rdf:resource="https://www.fmi-standard.org/fmi2.0/fmu/modelDescription/1patshd9kuqlpm8nabjrphvreo/ModelNameNotfound"/>
+  </oslc4jsfmi:FMU>
+  <oslc4jsfmi:FMU rdf:about="https://www.fmi-standard.org/fmi2.0/fmu/ControlledTemperature.fmu">
+    <oslc4jsfmi_fmu:modelDescription rdf:resource="https://www.fmi-standard.org/fmi2.0/fmu/modelDescription/b117eahgbhd65q6usp02toa5hu/ControlledTemperature"/>
+  </oslc4jsfmi:FMU>
+  <oslc4jsfmi:FMU rdf:about="https://www.fmi-standard.org/fmi2.0/fmu/Rectifier.fmu">
+    <oslc4jsfmi_fmu:modelDescription rdf:resource="https://www.fmi-standard.org/fmi2.0/fmu/modelDescription/sinl0grgn0bp9st65hue4kfj7m/Rectifier"/>
+  </oslc4jsfmi:FMU>
+  <oslc4jsfmi:FMU rdf:about="https://www.fmi-standard.org/fmi2.0/fmu/CoupledClutches.fmu">
+    <oslc4jsfmi_fmu:modelDescription rdf:resource="https://www.fmi-standard.org/fmi2.0/fmu/modelDescription/5fjhh7o0vganu8bei4hsh7nee9/CoupledClutches"/>
+  </oslc4jsfmi:FMU>
+  <oslc4jsfmi:FMU rdf:about="https://www.fmi-standard.org/fmi2.0/fmu/BouncingBall2_me.fmu">
+    <oslc4jsfmi_fmu:modelDescription rdf:resource="https://www.fmi-standard.org/fmi2.0/fmu/modelDescription/qgfp2tsjs2gqo22609e9s0di5o/BouncingBall"/>
+  </oslc4jsfmi:FMU>
+</rdf:RDF>

@@ -1,0 +1,30 @@
+
+<VirtualHost *:80>
+
+        ServerName {domain}
+        ServerAdmin webmaster@localhost
+        DocumentRoot {assetPath}
+
+        ErrorLog ${APACHE_LOG_DIR}/{whiteLabelAppName}.error.log
+        CustomLog ${APACHE_LOG_DIR}/{whiteLabelAppName}.access.log combined
+
+        RewriteEngine On
+        RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+        RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+        RewriteRule ^ - [L]
+        RewriteRule ^ /index.html
+
+</VirtualHost>
+
+
+NameVirtualHost 104.131.16.251
+
+<VirtualHost 104.131.16.251:80>
+ServerName 104.131.16.251
+DocumentRoot /var/www/kld-client-master/asset.default
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+RewriteRule ^ /index.html
+</VirtualHost>
