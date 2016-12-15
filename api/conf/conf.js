@@ -49,7 +49,7 @@ module.exports = {
       fusekiQueryUrl: 'http://admin:password@127.0.0.1:3030/ExampleCompanyFulltext/sparql',
       fusekiBaseUrl: 'http://admin:password@127.0.0.1:3030/ExampleCompany',
       solrHost: '127.0.0.1',
-      solrPort: '8983',
+      solrPort: '4000',
       dbUrl: {
         local: 'mongodb://localhost:27017/ExampleCompany-local',
         newFeatureReview: 'mongodb://localhost:27017/ExampleCompany-newfeature-review',
