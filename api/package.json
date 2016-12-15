@@ -8,8 +8,8 @@
   "scripts": {
     "start": "DEBUG=ServerBootstrap,*API,*DAO,*Service NODE_ENV=production node server.js",
     "lint": "./node_modules/.bin/eslinter  --no-use-cache *.js api/**/*.js specs/**/*.js",
-    "user.add": "DEBUG=* node ./bin/user.add",
-    "org.add": "DEBUG=* node ./bin/org.add"
+    "useradd": "DEBUG=* node ./bin/user.add",
+    "orgadd": "DEBUG=* node ./bin/org.add"
   },
   "dependencies": {
     "assert": "^1.3.0",

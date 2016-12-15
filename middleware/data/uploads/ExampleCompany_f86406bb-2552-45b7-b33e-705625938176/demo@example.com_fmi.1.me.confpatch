@@ -1,0 +1,28 @@
+{
+  "provisioning": {
+    "organizations": {
+      "ExampleCompany": {
+        "prefixes": {
+          "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+          "oslc": "http://open-services.net/ns/core#",
+          "oslc4jsfmi_model_description": "http://localhost:8686/oslc4jfmi/services/rdfvocabulary#ModelDescription/",
+          "dcterms": "http://purl.org/dc/terms/",
+          "oslc4jsfmi": "http://localhost:8686/oslc4jfmi/services/rdfvocabulary#",
+          "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+        },
+        "maps": {
+          "p_rdf.type": "rdf:type",
+          "p_oslc4jsfmi.ModelExchange_completedEventIterationIsProvided": "oslc4jsfmi:ModelExchange_completedEventIterationIsProvided",
+          "p_oslc4jsfmi.ModelExchange_canBeInstantiatedOncePerProcess": "oslc4jsfmi:ModelExchange_canBeInstantiatedOncePerProcess",
+          "p_oslc4jsfmi.ModelExchange_canGetAndSetFMUState": "oslc4jsfmi:ModelExchange_canGetAndSetFMUState",
+          "p_oslc4jsfmi.ModelExchange_completeIntegratorStepNotNeeded": "oslc4jsfmi:ModelExchange_completeIntegratorStepNotNeeded",
+          "p_oslc4jsfmi.ModelExchange_canSerializeFMUState": "oslc4jsfmi:ModelExchange_canSerializeFMUState",
+          "p_oslc4jsfmi.ModelExchange_providesDirectionalDerivatives": "oslc4jsfmi:ModelExchange_providesDirectionalDerivatives",
+          "p_oslc4jsfmi.ModelExchange_modelIdentifier": "oslc4jsfmi:ModelExchange_modelIdentifier",
+          "p_oslc4jsfmi.ModelExchange_canNotUseMemoryManagementFunctions": "oslc4jsfmi:ModelExchange_canNotUseMemoryManagementFunctions",
+          "p_oslc4jsfmi.ModelExchange_needsExecution": "oslc4jsfmi:ModelExchange_needsExecution"
+        }
+      }
+    }
+  }
+}

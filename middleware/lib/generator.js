@@ -1608,7 +1608,7 @@ class Generator {
       c += '\n';
 
       c += '<#dataset-' + organization + '-fulltext-index> a text:TextIndexSolr ;\n';
-      c += '\ttext:server <http://localhost:8983/solr/' + organization + '> ;\n';
+      c += '\ttext:server <http://localhost:4000/solr/' + organization + '> ;\n';
       c += '\ttext:entityMap <#dataset-' + organization + '-fulltext-map> ;\n';
       c += '\t.\n';
       c += '\n';

@@ -69,7 +69,8 @@ class ServerDefault {
         global.env !== 'productionMirror' &&
         global.env !== 'production') {
       debug('.env file must contain  environment = local | newFeatureReview | productionMirror | production')
-      process.exit(0)
+      debug('.env will define environment = local')
+      global.env = 'local'; 
     }
 
     https.globalAgent.maxSockets = Infinity

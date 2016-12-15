@@ -1,6 +1,6 @@
 module.exports = {
   clientId: 'ExampleCompany',
-  clientBuild: 'BuildNumber: 19MAY20160009AM',
+  clientBuild: 'BuildNumber: 2016',
   developerOrg: 'Koneksys',
   product: 'Koneksys Linked Data',
   developerWebsite: 'http://www.koneksys.com',

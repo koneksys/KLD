@@ -1,10 +1,12 @@
 profiles/*.json
 node_modules/
 generatedPatches/*
+solr/bin/*.pid
 solr/server/solr/*
 !solr/server/solr/configsets
 !solr/server/solr/solr.xml
 !solr/server/solr/zoo.cfg
 !solr/server/solr/README.txt
 data/*
+!data/uploads/readme.txt
 !data/readme.txt
