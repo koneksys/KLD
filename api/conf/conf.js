@@ -36,7 +36,7 @@ module.exports = {
           },
           "solr": {
             "memory": "500M",
-            "port": "8983",
+            "port": "4000",
            },
           "organizations": {
             "ExampleCompany": {
