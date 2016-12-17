@@ -1,0 +1,19 @@
+Apache Virtual Host Settings for KLD Client
+
+To assume that your server IP is 192.168.0.100 anf your KLD GIT repo is relocated at /var/www/KLD 
+
+The following Virtual Host setting for an Apache web server 
+
+
+
+NameVirtualHost 192.168.0.100
+
+<VirtualHost 192.168.0.100:80>
+	ServerName 192.168.0.100
+	DocumentRoot /var/www/KLD/client/asset.default
+	RewriteEngine On
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+	RewriteRule ^ - [L]
+	RewriteRule ^ /index.html
+</VirtualHost>

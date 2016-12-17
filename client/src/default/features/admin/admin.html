@@ -5,15 +5,20 @@
         <h1 ng-if="admin.inprogress" class="bg-warning" style="padding:20px;">Processing...</h1>
 
         <button class="btn btn-danger" ng-click="admin.emptyOrgData(true, true)" ng-disabled="admin.inprogress">
+        <span class="glyphicon glyphicon-trash"></span>
         <span class="glyphicon glyphicon-refresh"></span>
-         Initiate/Cleanup Provisioning</button>
+         Delete and Restart KLD Graph Database Service</button>
         <br><br>
         <!--
         <button class="btn btn-danger" ng-click="admin.deleteProvisioningDatabase()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-minus-sign"></span> Initiate new provisioning</button>
         <button class="btn btn-danger" ng-click="admin.addProvisioning()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-plus-sign"></span> Add provisioning</button>
         <button class="btn btn-danger" ng-click="admin.deleteProvisioning()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-minus-sign"></span> Delete provisioning</button>
-        <button class="btn btn-danger" ng-click="admin.startDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Start Datastore Service</button>
-        <button class="btn btn-danger" ng-click="admin.stopDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Stop Datastore Service</button>
+        -->
+
+        <button class="btn btn-success" ng-click="admin.startDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Start KLD Graph Database Service</button>
+        <button class="btn btn-warning" ng-click="admin.stopDatastore()" ng-disabled="admin.inprogress"><span class="glyphicon glyphicon-cog"></span> Stop KLD Graph Database Service</button>
+        <br><br>
+        <!--
         <br><br>
         <a href="" ng-click="admin.clearAlerts()">Clear notifications</a>
         <br><br>

@@ -1,4 +1,5 @@
 dist
+asset.default
 npm-debug.log
 node_modules
 src/profile.*
